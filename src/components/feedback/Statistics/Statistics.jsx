@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Button, ButtonContainer } from './FeedbackButtons.styled';
+import {
+  StatisticsList,
+  StatisticsItem,
+  StatisticsSpan,
+} from './Statistics.style';
 
 export const Statistics = ({
   good,
@@ -9,15 +13,23 @@ export const Statistics = ({
   total,
   positivePercentage,
 }) => (
-  <div>
-    <ul>
-      <li>Good: {good}</li>
-      <li>Neutral: {neutral}</li>
-      <li>Bad: {bad}</li>
-    </ul>
-    <p>Total:{total}</p>
-    <p>Positive feedback: {positivePercentage}%</p>
-  </div>
+  <StatisticsList>
+    <StatisticsItem>
+      Good: <StatisticsSpan>{good}</StatisticsSpan>
+    </StatisticsItem>
+    <StatisticsItem>
+      Neutral: <StatisticsSpan>{neutral}</StatisticsSpan>
+    </StatisticsItem>
+    <StatisticsItem>
+      Bad: <StatisticsSpan>{bad}</StatisticsSpan>
+    </StatisticsItem>
+    <StatisticsItem>
+      Total: <StatisticsSpan>{total}</StatisticsSpan>
+    </StatisticsItem>
+    <StatisticsItem>
+      Positive feedback: <StatisticsSpan>{positivePercentage}%</StatisticsSpan>
+    </StatisticsItem>
+  </StatisticsList>
 );
 
 Statistics.propTypes = {
