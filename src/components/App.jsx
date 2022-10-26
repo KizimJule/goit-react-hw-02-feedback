@@ -7,6 +7,11 @@ import { Section } from './feedback/Section/Section';
 import { Notification } from './feedback/Notification/Notification';
 
 export class App extends Component {
+  static defaultProps = {
+    total: 0,
+    positivePercentage: 0,
+  };
+
   state = {
     good: 0,
     neutral: 0,
@@ -43,9 +48,9 @@ export class App extends Component {
 
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
-    if (good === 0) {
-      return 0;
-    }
+    // if (good === 0) {
+    //   return 0;
+    // }
     const result = this.countTotalFeedback();
     const positiveFeedback = (good * 100) / result;
     return Math.round(positiveFeedback);
@@ -78,9 +83,6 @@ export class App extends Component {
           <FeedbackOptions
             options={['Good', 'Neutral', 'Bad']}
             onLeaveFeedback={this.handleFeedback}
-            // onHandleClickGood={this.handleClickGood}
-            // onHandleClickNeutral={this.handleClickNeutral}
-            // onHandleClickBad={this.handleClickBad}
           />
         </Section>
 
